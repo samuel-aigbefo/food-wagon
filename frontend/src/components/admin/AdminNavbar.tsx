@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 import Button from "../ui/Button";
-import { customers } from "./customers/data";
+
 import { initialCategories } from "./categories/CategoriesGrid";
 import { useAuth } from "@/data/context/AuthContext";
 import { useOrdersCount } from "./orders/useOrdersCount";
@@ -71,7 +71,7 @@ export default function AdminNavbar({
 
     "/admin/customers": {
       title: "Customers",
-      subtitle: `${customers.length} registered customers`,
+      subtitle: "Registered customers",
       buttonText: "",
     },
 

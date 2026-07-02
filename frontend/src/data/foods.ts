@@ -1,4 +1,4 @@
-// data/foods.ts
+
 
 import { Food, Foodss, Item, User } from "./type";
 
