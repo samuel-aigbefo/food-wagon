@@ -21,6 +21,7 @@ import { useSearch } from "@/data/context/SearchContext";
 import { useAuth } from "@/data/context/AuthContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,11 +60,19 @@ export default function Navbar() {
 
             {/* LEFT */}
             <Link href="/">
-              <div className="flex items-center gap-2">
-                <Truck className="text-orange-500" size={26} />
-                <h1 className="font-bold text-[17px] text-orange-500">foodwagon</h1>
-              </div>
-            </Link>
+ <div className="flex items-center gap-2 cursor-pointer">
+    <Image
+      src="/logo/crop.png"
+      alt="FoodWagon Logo"
+      width={152}
+      height={102}
+      priority
+      className="object-contain"
+    />
+
+   
+  </div>
+</Link>
 
             {/* CENTER */}
             <div className="hidden md:flex items-center gap-2 text-sm text-gray-600 ml-2">

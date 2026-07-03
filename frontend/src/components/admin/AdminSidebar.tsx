@@ -14,6 +14,7 @@ import {
   ChevronRight,
   Truck,
 } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   {
@@ -76,14 +77,14 @@ export default function AdminSidebar({
         {/* Logo */}
         <Link href="/">
           <div className="flex h-20 items-center justify-center md:justify-center lg:justify-start gap-2 px-4 lg:px-6">
-            <Truck
-              className="text-orange-500"
-              size={26}
-            />
-
-            <h1 className="md:hidden lg:block font-bold text-[20px] text-orange-500">
-              foodwagon
-            </h1>
+           <Image
+                 src="/logo/crop.png"
+                 alt="FoodWagon Logo"
+                 width={152}
+                 height={102}
+                 priority
+                 className="object-contain"
+               />
           </div>
         </Link>
 
