@@ -80,7 +80,7 @@ export default function Navbar() {
               <MapPin size={18} className="text-orange-500" />
               <span className="font-medium text-gray-700">Current Location</span>
               <span className="font-bold text-gray-700">
-                Mohammadpur Bus Stand, Dhaka
+                 Nigeria, Lagos State
               </span>
             </div>
 
@@ -201,7 +201,7 @@ export default function Navbar() {
             <div className="px-2 space-y-4">
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <MapPin size={18} className="text-orange-500" />
-                <span>Deliver to: <strong>Mohammadpur Bus Stand, Dhaka</strong></span>
+                <span>Deliver to: <strong> Nigeria, Lagos State</strong></span>
               </div>
 
               {user ? (

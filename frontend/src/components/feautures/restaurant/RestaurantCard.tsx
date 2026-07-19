@@ -1,5 +1,3 @@
-// components/RestaurantCard.tsx
-
 import { Restaurant } from "@/data/type";
 import { Clock, Tag, Star } from "lucide-react";
 
