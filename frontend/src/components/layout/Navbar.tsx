@@ -10,7 +10,8 @@ import {
   ShoppingCart,
   UserCircle,
   Package,
-  LogOut
+  LogOut,
+  LayoutDashboard
 } from "lucide-react";
 
 import { useState, useRef, useEffect } from "react";
@@ -35,7 +36,10 @@ export default function Navbar() {
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+  // const cartCount = Array.isArray(cart)
+  // ? cart.reduce((total, item) => total + item.quantity, 0)
+  // : 0;
 
   // Click outside to close dropdown
   useEffect(() => {
@@ -54,28 +58,28 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <header className=" bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-5 md:px-20 lg:px-20">
           <div className="flex items-center justify-between h-16">
 
             {/* LEFT */}
             <Link href="/">
- <div className="flex items-center gap-2 cursor-pointer">
-    <Image
-      src="/logo/crop.png"
-      alt="FoodWagon Logo"
-      width={152}
-      height={102}
-      priority
-      className="object-contain"
-    />
+            <div className="flex items-center gap-2 cursor-pointer">
+                <Image
+                  src="/logo/crop.png"
+                  alt="FoodWagon Logo"
+                  width={152}
+                  height={102}
+                  priority
+                  className="object-contain"
+                />
 
-   
-  </div>
-</Link>
+              
+              </div>
+            </Link>
 
             {/* CENTER */}
-            <div className="hidden md:flex items-center gap-2 text-sm text-gray-600 ml-2">
+            <div className="hidden lg:flex items-center gap-2 text-sm text-gray-600 ml-2">
               <span className="font-bold">Deliver to:</span>
               <MapPin size={18} className="text-orange-500" />
               <span className="font-medium text-gray-700">Current Location</span>
@@ -85,10 +89,10 @@ export default function Navbar() {
             </div>
 
             {/* RIGHT */}
-            <div className="flex items-center gap-3 md:gap-4 space-x-2">
+            <div className="flex items-center gap-3 lg:gap-4 space-x-2">
 
               {/* SEARCH */}
-              <div className="hidden md:flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm focus-within:ring-2 focus-within:ring-orange-400 transition">
+              <div className="hidden lg:flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-3 py-2 shadow-sm focus-within:ring-2 focus-within:ring-orange-400 transition">
                 <Search size={18} className="text-gray-400" />
                 <input
                   type="text"
@@ -111,16 +115,33 @@ export default function Navbar() {
               </button>
 
               {/* MOBILE MENU BTN */}
+             
+
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="md:hidden p-3 text-gray-700 hover:bg-gray-100 rounded-lg"
+                className="lg:hidden p-3 text-gray-700 hover:bg-gray-100 rounded-lg"
               >
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
 
+              {/* Admin */}
+              {user?.role === "admin" && (
+              <Link href="/admin">
+                <button
+                
+                  className="hidden lg:flex items-center gap-2 text-sm"
+                >
+                  
+                  <span>Admin</span>
+                </button>
+              </Link>
+              )}
+
+
+
               {/* MODERN DROPDOWN */}
               {user ? (
-                <div className="relative hidden md:block" ref={dropdownRef}>
+                <div className="relative hidden lg:block" ref={dropdownRef}>
                   <button
                     
                     onClick={() => setOpen(!open)}
@@ -181,7 +202,7 @@ export default function Navbar() {
                 <Link href="/login">
                   <Button
                     variant="secondary"
-                    className="hidden md:flex items-center gap-2 text-sm ml-3"
+                    className="hidden lg:flex items-center gap-2 text-sm ml-3"
                   >
                     <User size={20} className="text-black"/>
                     <span>Login</span>
@@ -194,7 +215,7 @@ export default function Navbar() {
 
           {/* MOBILE MENU */}
           <div
-            className={`md:hidden overflow-hidden transition-all duration-300 border-t bg-white ${
+            className={`lg:hidden overflow-hidden transition-all duration-300 border-t bg-white ${
               isMenuOpen ? "max-h-96 py-4" : "max-h-0 py-0"
             }`}
           >
@@ -203,6 +224,17 @@ export default function Navbar() {
                 <MapPin size={18} className="text-orange-500" />
                 <span>Deliver to: <strong> Nigeria, Lagos State</strong></span>
               </div>
+
+            {user?.role === "admin" && (
+              <Link href="/admin">
+                <button className="flex items-center gap-2 text-sm font-medium pb-4"
+                >
+                  <LayoutDashboard size={18} className="text-orange-500"/>
+                                Admin
+                </button>
+              </Link>
+            )}
+
 
               {user ? (
                 <div className="space-y-2">

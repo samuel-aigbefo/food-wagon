@@ -36,7 +36,13 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
     if (stored) {
       try {
-        setCart(JSON.parse(stored));
+         setCart(JSON.parse(stored));
+//         const parsed = JSON.parse(stored);
+
+// console.log("Stored cart:", parsed);
+// console.log("Array?", Array.isArray(parsed));
+
+// setCart(Array.isArray(parsed) ? parsed : []);
       } catch {
         setCart([]);
       }

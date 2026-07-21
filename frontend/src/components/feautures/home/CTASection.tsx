@@ -18,7 +18,7 @@ export default function CTASection() {
 
   {/* CONTENT */}
   <div className="relative z-10">
-    <h2 className="text-white text-[22px] md:text-[28px] font-semibold mb-6">
+    <h2 className="text-white text-[22px] md:text-[15px] font-semibold mb-6">
       Are you ready to order with <br />
       the best deals?
     </h2>
