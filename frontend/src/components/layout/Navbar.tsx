@@ -124,6 +124,16 @@ export default function Navbar() {
                 {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
 
+              {/* Orders */}
+                {user && (
+                  <Link href="/orders">
+                    <button className="hidden lg:flex items-center gap-2 text-sm">
+                      
+                      <span>Orders</span>
+                    </button>
+                  </Link>
+                )}
+
               {/* Admin */}
               {user?.role === "admin" && (
               <Link href="/admin">
@@ -224,6 +234,16 @@ export default function Navbar() {
                 <MapPin size={18} className="text-orange-500" />
                 <span>Deliver to: <strong> Nigeria, Lagos State</strong></span>
               </div>
+
+              {user && (
+              <Link href="/orders">
+                <button className="flex items-center gap-2 text-sm font-medium pb-4"
+                >
+                  <Package size={18} className="text-orange-500"/>
+                     Orders
+                </button>
+              </Link>
+            )}
 
             {user?.role === "admin" && (
               <Link href="/admin">
