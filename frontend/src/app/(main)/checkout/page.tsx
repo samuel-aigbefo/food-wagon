@@ -218,8 +218,8 @@ const fullName = `${user?.firstName || ""} ${user?.lastName || ""}`.trim();
         </div>
 
         <p className="font-semibold">
-          ${(item.price * item.quantity).toFixed(2)}
-        </p>
+  ₦{(item.price * item.quantity).toLocaleString()}
+</p>
       </div>
     ))}
   </div>
@@ -228,17 +228,17 @@ const fullName = `${user?.firstName || ""} ${user?.lastName || ""}`.trim();
   <div className="mt-6 space-y-3">
     <div className="flex justify-between text-gray-600">
       <span>Subtotal</span>
-      <span>${subtotal.toFixed(2)}</span>
+     <span>₦{subtotal.toLocaleString()}</span>
     </div>
 
     <div className="flex justify-between text-gray-600">
       <span>Delivery Fee</span>
-      <span>${deliveryFee.toFixed(2)}</span>
+      <span>₦{deliveryFee.toLocaleString()}</span>
     </div>
 
     <div className="border-t pt-3 flex justify-between text-lg font-bold">
       <span>Total</span>
-      <span>${total.toFixed(2)}</span>
+      <span>₦{total.toLocaleString()}</span>
     </div>
   </div>
 
@@ -290,7 +290,7 @@ const fullName = `${user?.firstName || ""} ${user?.lastName || ""}`.trim();
     isLoading={isPlacingOrder}
     onClick={handleOrder}
   >
-    Place Order - ${total.toFixed(2)}
+    Place Order - ₦{total.toLocaleString()}
   </Button>
 
   <p className="text-xs text-center text-gray-500 mt-4">

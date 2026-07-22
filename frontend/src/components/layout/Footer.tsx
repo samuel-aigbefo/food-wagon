@@ -121,14 +121,14 @@ export default function Footer() {
              <a href="#" className="text-gray-400 hover:text-white text-2xl transition"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"> <path d="M18.244 2.25l-7.129 8.132L3.75 2.25H.5l7.36 10.42L.5 21.75h3.75l6.43-7.32 6.564 7.32h3.75l-7.74-10.92L23.5 2.25h-5.256z"/> </svg> </a>
             </div>
 
-            <div className="flex gap-2 mt-5 md:flex-col" >
+            <div className="flex gap-2 mt-5 md:flex-col " >
               <input
                 type="email"
                 placeholder="Your email"
                 className="flex-1 bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-sm outline-none focus:border-orange-400"
               />
 
-              <button className="bg-orange-500 hover:bg-orange-600 px-4 rounded-lg text-sm font-medium transition">
+              <button className="bg-orange-500 hover:bg-orange-600 px-4 rounded-lg text-sm font-medium transition md:pt-2 md:pb-2">
                 Join
               </button>
             </div>

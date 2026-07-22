@@ -26,6 +26,13 @@ export default function CartDrawer({ isOpen, onClose }: Props) {
     0
   );
 
+  const formatPrice = (price: number) =>
+  new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+    maximumFractionDigits: 0,
+  }).format(price);
+
   return (
     <>
       {/* Backdrop */}
@@ -107,9 +114,9 @@ export default function CartDrawer({ isOpen, onClose }: Props) {
                     </button>
                   </div>
 
-                  <p className="font-semibold mt-3">
-                    ${(item.price * item.quantity).toFixed(2)}
-                  </p>
+                 <p className="font-semibold mt-3">
+  {formatPrice(item.price * item.quantity)}
+</p>
                 </div>
               </div>
             ))
@@ -121,7 +128,9 @@ export default function CartDrawer({ isOpen, onClose }: Props) {
           <div className="absolute bottom-0 left-0 right-0 border-t bg-white p-5">
             <div className="flex justify-between items-center mb-4">
               <span className="text-lg font-semibold">Total</span>
-              <span className="text-2xl font-bold">${total.toFixed(2)}</span>
+              <span className="text-2xl font-bold">
+  {formatPrice(total)}
+</span>
             </div>
 
             <Button
